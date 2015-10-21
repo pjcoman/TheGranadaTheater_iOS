@@ -267,10 +267,12 @@ class GranadaShowsTableView: UITableViewController {
         
         let actprice = object["price"] as! String
         
+        var actImageTrimmed = object["actimage"] as! String
+        actImageTrimmed = actImageTrimmed.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         
         
-        ImageLoader.sharedLoader.imageForUrl((object["actimage"] as? String)!, completionHandler: {(image: UIImage?, url: String) in cell.showActImage.image = image!})
+        ImageLoader.sharedLoader.imageForUrl((actImageTrimmed), completionHandler: {(image: UIImage?, url: String) in cell.showActImage.image = image!})
         
         
         
